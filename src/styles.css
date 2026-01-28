@@ -1,0 +1,1709 @@
+/* ============================================
+   GLOBAL & BASE STYLES
+   ============================================ */
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light;
+  color: rgba(0, 0, 0, 0.87);
+  background-color: #ffffff;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-color: #f9fafb;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* ============================================
+   SIDEBAR STYLES
+   ============================================ */
+
+.mobile-menu-toggle {
+  display: none;
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 1001;
+  background-color: #1f2937;
+  color: white;
+  border: none;
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 320px;
+  height: 100vh;
+  background-color: #1f2937;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+.sidebar-logo {
+  padding: 24px 16px;
+  border-bottom: 1px solid #374151;
+}
+
+.logo-box {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: white;
+}
+
+.logo-text {
+  font-weight: 700;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-text::before {
+  content: 'C';
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.logo-premium {
+  font-size: 12px;
+  opacity: 0.8;
+  margin-left: 28px;
+}
+
+.sidebar-nav {
+  flex: 1;
+  padding: 16px 0;
+  overflow-y: auto;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 24px;
+  color: #d1d5db;
+  text-decoration: none;
+  font-size: 15px;
+  transition: background-color 0.2s;
+}
+
+.nav-item:hover {
+  background-color: #374151;
+  color: white;
+}
+
+.nav-item.active {
+  background-color: #4b5563;
+  font-weight: 500;
+  color: white;
+}
+
+.nav-icon {
+  font-size: 18px;
+  width: 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.sidebar-footer {
+  padding: 16px 24px;
+  border-top: 1px solid #374151;
+}
+
+.subscription-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.subscription-badge {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #10b981;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.subscription-text {
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+/* ============================================
+   HOME PAGE STYLES
+   ============================================ */
+
+.home-page {
+  margin-left: 280px;
+  min-height: 100vh;
+  height: 100vh;
+  background-color: #ffffff;
+  padding: 32px 48px 32px 64px;
+  overflow-y: auto;
+  width: calc(100% - 280px);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+.home-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+}
+
+.page-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 32px;
+}
+
+.info-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.info-card {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.card-header h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+.external-link {
+  color: #6b7280;
+  font-size: 19px;
+  cursor: pointer;
+}
+
+.info-card p {
+  color: #6b7280;
+  line-height: 1.6;
+  margin: 0;
+  font-size: 15px;
+}
+
+.latest-posts {
+  margin-top: 48px;
+}
+
+.section-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 24px;
+}
+
+.posts-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.post-item {
+  padding: 24px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s;
+}
+
+.post-item:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.post-date {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 8px;
+}
+
+.post-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.post-excerpt {
+  color: #4b5563;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  font-size: 15px;
+}
+
+.post-link {
+  color: #2563eb;
+  text-decoration: underline;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.post-link:hover {
+  color: #1d4ed8;
+}
+
+/* ============================================
+   PORTFOLIO PAGE STYLES
+   ============================================ */
+
+.portfolio-page {
+  margin-left: 280px;
+  min-height: 100vh;
+  height: 100vh;
+  background-color: #ffffff;
+  padding: 32px 48px 32px 64px;
+  overflow-y: auto;
+  width: calc(100% - 280px);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+.portfolio-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+}
+
+.trailing-returns-section {
+  margin-bottom: 48px;
+  width: 100%;
+}
+
+.trailing-returns-section .section-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 16px;
+}
+
+.table-container {
+  overflow-x: auto;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  width: 100%;
+}
+
+.returns-table {
+  width: 100%;
+  min-width: 1000px;
+  border-collapse: collapse;
+  background-color: #ffffff;
+}
+
+.returns-table thead {
+  background-color: #f9fafb;
+}
+
+.returns-table th {
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 14px;
+  color: #374151;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.returns-table td {
+  padding: 12px 16px;
+  font-size: 14px;
+  color: #111827;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.returns-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.name-cell {
+  font-weight: 500;
+}
+
+.table-note {
+  font-size: 14px;
+  color: #6b7280;
+  margin-top: 8px;
+}
+
+.equity-curve-section {
+  margin-top: 48px;
+  width: 100%;
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.chart-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.live-indicator {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.reset-btn {
+  padding: 8px 16px;
+  background-color: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #374151;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.reset-btn:hover {
+  background-color: #e5e7eb;
+}
+
+.date-inputs {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.date-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.date-input-group label {
+  font-size: 14px;
+  color: #374151;
+  font-weight: 500;
+}
+
+.date-input {
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #111827;
+  width: 180px;
+}
+
+.date-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.chart-container {
+  margin-bottom: 32px;
+  background-color: #ffffff;
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.drawdown-chart-container {
+  background-color: #ffffff;
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  width: 100%;
+}
+
+/* ============================================
+   ACCOUNT PAGE STYLES
+   ============================================ */
+
+.account-page {
+  margin-left: 280px;
+  min-height: 100vh;
+  height: 100vh;
+  background-color: #ffffff;
+  padding: 32px 48px 32px 64px;
+  overflow-y: auto;
+  width: calc(100% - 280px);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+.account-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+}
+
+.account-page .page-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.page-subtitle {
+  font-size: 16px;
+  color: #6b7280;
+  margin-bottom: 32px;
+}
+
+.account-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.account-section {
+  width: 100%;
+}
+
+.account-page .section-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 16px;
+}
+
+.profile-card,
+.subscription-card,
+.preferences-card {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 32px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.profile-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.profile-info {
+  flex: 1;
+}
+
+.profile-name {
+  font-size: 24px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 4px;
+}
+
+.profile-email {
+  font-size: 16px;
+  color: #6b7280;
+}
+
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+}
+
+.detail-label {
+  font-size: 15px;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.detail-value {
+  font-size: 15px;
+  color: #111827;
+  font-weight: 500;
+}
+
+.edit-button {
+  padding: 12px 24px;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.edit-button:hover {
+  background-color: #2563eb;
+}
+
+.subscription-header {
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.subscription-plan {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.subscription-status {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.subscription-status.active {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.subscription-details {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.subscription-actions {
+  display: flex;
+  gap: 16px;
+}
+
+.action-button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.action-button.primary {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.action-button.primary:hover {
+  background-color: #2563eb;
+}
+
+.action-button.secondary {
+  background-color: #ffffff;
+  color: #6b7280;
+  border: 1px solid #e5e7eb;
+}
+
+.action-button.secondary:hover {
+  background-color: #f9fafb;
+}
+
+.preferences-card {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.preference-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.preference-item:last-child {
+  border-bottom: none;
+}
+
+.preference-info {
+  flex: 1;
+}
+
+.preference-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 4px;
+}
+
+.preference-description {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #d1d5db;
+  transition: 0.3s;
+  border-radius: 26px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.3s;
+  border-radius: 50%;
+}
+
+.toggle-switch input:checked + .toggle-slider {
+  background-color: #3b82f6;
+}
+
+.toggle-switch input:checked + .toggle-slider:before {
+  transform: translateX(24px);
+}
+
+/* ============================================
+   EXPERIMENTALS PAGE STYLES
+   ============================================ */
+
+.experimentals-page {
+  margin-left: 280px;
+  min-height: 100vh;
+  height: 100vh;
+  background-color: #ffffff;
+  padding: 32px 48px 32px 64px;
+  overflow-y: auto;
+  width: calc(100% - 280px);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+.experimentals-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+}
+
+.experimentals-page .page-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.experimentals-page .page-subtitle {
+  font-size: 16px;
+  color: #6b7280;
+  margin-bottom: 32px;
+}
+
+.experiments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.experiment-card {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s;
+}
+
+.experiment-card:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.experiment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.experiment-header h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+  flex: 1;
+}
+
+.status-badge {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.status-badge.in-testing {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.status-badge.beta {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.experiment-description {
+  color: #6b7280;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  font-size: 15px;
+}
+
+.experiment-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.experiment-date {
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+.try-button {
+  padding: 8px 16px;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.try-button:hover {
+  background-color: #2563eb;
+}
+
+/* ============================================
+   SLACK ARCHIVES PAGE STYLES
+   ============================================ */
+
+.slack-archives-page {
+  margin-left: 280px;
+  min-height: 100vh;
+  height: 100vh;
+  background-color: #ffffff;
+  padding: 32px 48px 32px 64px;
+  overflow-y: auto;
+  width: calc(100% - 280px);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+.slack-archives-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+}
+
+.slack-archives-page .page-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.slack-archives-page .page-subtitle {
+  font-size: 16px;
+  color: #6b7280;
+  margin-bottom: 32px;
+}
+
+.archives-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.archive-item {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s;
+}
+
+.archive-item:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.archive-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.channel-name {
+  font-weight: 600;
+  color: #3b82f6;
+  font-size: 14px;
+}
+
+.archive-date {
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+.archive-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 12px;
+}
+
+.archive-preview {
+  color: #6b7280;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  font-size: 15px;
+}
+
+.archive-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.archive-author {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.archive-replies {
+  font-size: 14px;
+  color: #3b82f6;
+  font-weight: 500;
+}
+
+/* ============================================
+   REFER FRIEND PAGE STYLES
+   ============================================ */
+
+.refer-friend-page {
+  margin-left: 280px;
+  min-height: 100vh;
+  height: 100vh;
+  background-color: #ffffff;
+  padding: 32px 48px 32px 64px;
+  overflow-y: auto;
+  width: calc(100% - 280px);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+.refer-friend-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+}
+
+.refer-friend-page .page-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.refer-friend-page .page-subtitle {
+  font-size: 16px;
+  color: #6b7280;
+  margin-bottom: 32px;
+}
+
+.referral-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.stat-card {
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 24px;
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 32px;
+  font-weight: 700;
+  color: #3b82f6;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.referral-section {
+  margin-bottom: 48px;
+}
+
+.referral-section .section-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 16px;
+}
+
+.referral-link-box {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.referral-input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 15px;
+  color: #111827;
+  background-color: #f9fafb;
+}
+
+.copy-button {
+  padding: 12px 24px;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.copy-button:hover {
+  background-color: #2563eb;
+}
+
+.referral-code-text {
+  font-size: 15px;
+  color: #6b7280;
+}
+
+.benefits-section {
+  margin-top: 48px;
+}
+
+.benefits-section .section-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 16px;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.benefit-card {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 32px;
+  text-align: center;
+}
+
+.benefit-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.benefit-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 12px;
+}
+
+.benefit-description {
+  color: #6b7280;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+/* ============================================
+   GIFT SUBSCRIPTION PAGE STYLES
+   ============================================ */
+
+.gift-subscription-page {
+  margin-left: 280px;
+  min-height: 100vh;
+  height: 100vh;
+  background-color: #ffffff;
+  padding: 32px 48px 32px 64px;
+  overflow-y: auto;
+  width: calc(100% - 280px);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+.gift-subscription-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+}
+
+.gift-subscription-page .page-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.gift-subscription-page .page-subtitle {
+  font-size: 16px;
+  color: #6b7280;
+  margin-bottom: 32px;
+}
+
+.gift-plans {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.plan-card {
+  background-color: #ffffff;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 32px;
+  text-align: center;
+  position: relative;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.plan-card:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.plan-card.popular {
+  border-color: #3b82f6;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+
+.popular-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #3b82f6;
+  color: white;
+  padding: 4px 16px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.plan-name {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 16px;
+}
+
+.plan-price {
+  margin-bottom: 16px;
+}
+
+.currency {
+  font-size: 20px;
+  color: #6b7280;
+  vertical-align: top;
+}
+
+.amount {
+  font-size: 40px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.plan-savings {
+  color: #10b981;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+.gift-button {
+  width: 100%;
+  padding: 12px 24px;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.gift-button:hover {
+  background-color: #2563eb;
+}
+
+.gift-info {
+  margin-top: 48px;
+}
+
+.gift-info .section-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 32px;
+}
+
+.info-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.step {
+  display: flex;
+  gap: 16px;
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #3b82f6;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.step-content h4 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.step-content p {
+  color: #6b7280;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+/* ============================================
+   RESPONSIVE MEDIA QUERIES
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 280px;
+  }
+
+  .app {
+    flex-direction: column;
+  }
+
+  .home-page,
+  .portfolio-page,
+  .account-page,
+  .experimentals-page,
+  .slack-archives-page,
+  .refer-friend-page,
+  .gift-subscription-page {
+    padding: 24px 32px 24px 48px;
+    margin-left: 280px;
+    width: calc(100% - 280px);
+  }
+
+  .home-page .info-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .home-page .posts-list {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-page .returns-table {
+    min-width: 800px;
+  }
+
+  .experimentals-page .experiments-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .refer-friend-page .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gift-subscription-page .gift-plans {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
+  .sidebar-overlay {
+    display: block;
+  }
+
+  .sidebar {
+    width: 280px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .home-page,
+  .portfolio-page,
+  .account-page,
+  .experimentals-page,
+  .slack-archives-page,
+  .refer-friend-page,
+  .gift-subscription-page {
+    margin-left: 0;
+    padding: 72px 16px 16px 16px;
+    width: 100%;
+  }
+
+  .home-page .page-title,
+  .portfolio-page .page-title,
+  .account-page .page-title,
+  .experimentals-page .page-title,
+  .slack-archives-page .page-title,
+  .refer-friend-page .page-title,
+  .gift-subscription-page .page-title {
+    font-size: 24px;
+    margin-bottom: 24px;
+    margin-top: 0;
+  }
+
+  .home-page .info-cards {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .home-page .info-card {
+    padding: 16px;
+  }
+
+  .home-page .card-header h3 {
+    font-size: 16px;
+  }
+
+  .home-page .section-title {
+    font-size: 22px;
+    margin-bottom: 16px;
+  }
+
+  .home-page .posts-list {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .home-page .post-item {
+    padding: 16px;
+  }
+
+  .home-page .post-title {
+    font-size: 18px;
+  }
+
+  .portfolio-page .section-title {
+    font-size: 20px;
+  }
+
+  .portfolio-page .chart-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .portfolio-page .date-inputs {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .portfolio-page .date-input {
+    width: 100%;
+  }
+
+  .portfolio-page .table-container {
+    overflow-x: auto;
+  }
+
+  .portfolio-page .returns-table {
+    min-width: 700px;
+    font-size: 12px;
+  }
+
+  .portfolio-page .returns-table th,
+  .portfolio-page .returns-table td {
+    padding: 8px 12px;
+  }
+
+  .portfolio-page .chart-container,
+  .portfolio-page .drawdown-chart-container {
+    padding: 12px;
+  }
+
+  .account-page .section-title {
+    font-size: 20px;
+  }
+
+  .account-page .profile-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .account-page .profile-avatar {
+    margin: 0 auto;
+  }
+
+  .account-page .subscription-actions {
+    flex-direction: column;
+  }
+
+  .account-page .action-button {
+    width: 100%;
+  }
+
+  .experimentals-page .experiments-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .experimentals-page .experiment-card {
+    padding: 16px;
+  }
+
+  .slack-archives-page .archive-item {
+    padding: 16px;
+  }
+
+  .refer-friend-page .referral-stats,
+  .refer-friend-page .benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .refer-friend-page .referral-link-box {
+    flex-direction: column;
+  }
+
+  .refer-friend-page .benefit-card {
+    padding: 24px;
+  }
+
+  .gift-subscription-page .gift-plans {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .gift-subscription-page .plan-card {
+    padding: 24px;
+  }
+
+  .gift-subscription-page .info-steps {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mobile-menu-toggle {
+    top: 12px;
+    left: 12px;
+    padding: 10px;
+    font-size: 20px;
+  }
+
+  .sidebar {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .sidebar-logo {
+    padding: 16px 12px;
+  }
+
+  .nav-item {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+
+  .subscription-text {
+    font-size: 12px;
+  }
+
+  .home-page,
+  .portfolio-page,
+  .account-page,
+  .experimentals-page,
+  .slack-archives-page,
+  .refer-friend-page,
+  .gift-subscription-page {
+    padding: 68px 12px 12px 12px;
+  }
+
+  .home-page .page-title,
+  .portfolio-page .page-title,
+  .account-page .page-title,
+  .experimentals-page .page-title,
+  .slack-archives-page .page-title,
+  .refer-friend-page .page-title,
+  .gift-subscription-page .page-title {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .home-page .section-title {
+    font-size: 18px;
+  }
+
+  .home-page .post-title {
+    font-size: 16px;
+  }
+
+  .home-page .post-excerpt {
+    font-size: 14px;
+  }
+
+  .portfolio-page {
+    padding: 12px;
+  }
+
+  .portfolio-page .section-title {
+    font-size: 18px;
+  }
+
+  .portfolio-page .returns-table {
+    min-width: 600px;
+    font-size: 11px;
+  }
+
+  .portfolio-page .returns-table th,
+  .portfolio-page .returns-table td {
+    padding: 6px 8px;
+  }
+
+  .account-page {
+    padding: 12px;
+  }
+
+  .account-page .profile-card,
+  .account-page .subscription-card,
+  .account-page .preferences-card {
+    padding: 16px;
+  }
+
+  .account-page .profile-avatar {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+  }
+
+  .experimentals-page .page-title {
+    font-size: 20px;
+  }
+
+  .slack-archives-page .page-title {
+    font-size: 20px;
+  }
+
+  .refer-friend-page .stat-value {
+    font-size: 24px;
+  }
+
+  .gift-subscription-page .amount {
+    font-size: 32px;
+  }
+}
